@@ -46,6 +46,18 @@ module Bigcommerce
       @connection.get '/store'
     end
 
+    def shipping_providers(options={})
+      @connection.get("/shipping/provider_authentications", options)
+    end
+
+    def shipping_provider(id, options={})
+      @connection.get("/shipping/provider_authentications/#{id}", options)
+    end
+
+    def create_shipping_providers(options={})
+       @connection.post("/shipping/provider_authentications", options)
+    end
+
     def brands(options={})
       @connection.get("/brands", options)
     end
